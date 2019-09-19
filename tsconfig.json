@@ -5,6 +5,7 @@
     "sourceMap": true,
     "noImplicitAny": true
   },
+  "baseUrl": "./public/src/ts/",
   "files": [
     "public/src/ts/main.ts"
   ],

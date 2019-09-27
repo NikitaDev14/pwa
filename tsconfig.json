@@ -2,10 +2,10 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2015",
+    "lib": ["es2017", "webworker"],
     "sourceMap": true,
     "noImplicitAny": true
   },
-  "baseUrl": "./public/src/ts/",
   "files": [
     "public/src/ts/main/main.ts"
   ],

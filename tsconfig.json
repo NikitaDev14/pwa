@@ -7,7 +7,7 @@
   },
   "baseUrl": "./public/src/ts/",
   "files": [
-    "public/src/ts/main.ts"
+    "public/src/ts/main/main.ts"
   ],
   "exclude": [
     "node_modules"

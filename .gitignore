@@ -1,4 +1,5 @@
 .idea
 node_modules
-/public/dist/
 /package-lock.json
+/public/bundle.js
+/public/sw.js

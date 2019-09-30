@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "es6",
     "target": "es2015",
-    "lib": ["es2017", "webworker"],
+    "lib": [
+      "es2017",
+      "webworker",
+      "dom"
+    ],
     "sourceMap": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "outDir": "./dist/"
   },
   "files": [
-    "public/src/ts/main/main.ts"
+    "src/ts/main/main.ts"
   ],
   "exclude": [
     "node_modules"

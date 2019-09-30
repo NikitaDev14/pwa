@@ -1,52 +1,61 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
   entry: {
-    main: './src/ts/main/main.ts',
-    serviceWorker: './src/ts/service worker/main.ts'
+    main: path.join(__dirname, 'src/ts/main/main.ts'),
+    serviceWorker: path.join(__dirname, 'src/ts/service worker/main.ts'),
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
+    index: 'index.html',
+    contentBase: path.join(__dirname, 'dist'),
+    disableHostCheck: true,
+    https: true,
+    liveReload: true,
+    watchContentBase: true,
+    useLocalIp: true,
   },
   module: {
     rules: [{
+      test: /\.css$/,
+      use: [{
+        loader: MiniCssExtractPlugin.loader,
+      },
+        'css-loader',
+      ],
+    }, {
       test: /\.ts$/,
       use: 'ts-loader',
       exclude: /node_modules/,
-    }]
+    }],
   },
   resolve: {
-    extensions: ['.ts'],
+    extensions: ['.js', '.ts', '.css'],
+    modules: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules')]
   },
   plugins: [
     new CleanWebpackPlugin({
       cleanAfterEveryBuildPatterns: [
         '!favicon.ico',
         '!manifest.json',
+        '!index.html',
+        '!help/**',
+        '!images/**'
       ]
     }),
     new CopyPlugin([
       {
-        from: path.resolve(__dirname, 'src/favicon.ico'),
+        from: path.resolve(__dirname, 'src/**'),
         to: path.resolve(__dirname, 'dist'),
-      },
-      {
-        from: path.resolve(__dirname, 'src/index.html'),
-        to: path.resolve(__dirname, 'dist'),
-      },
-      {
-        from: path.resolve(__dirname, 'src/manifest.json'),
-        to: path.resolve(__dirname, 'dist'),
-      },
-      {
-        from: path.resolve(__dirname, 'src/js/material.min.js'),
-        to: path.resolve(__dirname, 'dist'),
+        context: 'src/',
+        ignore: ['*.ts'],
       },
     ]),
+    new MiniCssExtractPlugin(),
   ],
   output: {
     filename: '[name].js',

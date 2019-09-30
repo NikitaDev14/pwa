@@ -1,6 +1,5 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -43,10 +42,11 @@ module.exports = {
         from: path.resolve(__dirname, 'src/manifest.json'),
         to: path.resolve(__dirname, 'dist'),
       },
+      {
+        from: path.resolve(__dirname, 'src/js/material.min.js'),
+        to: path.resolve(__dirname, 'dist'),
+      },
     ]),
-    new HtmlWebpackPlugin({
-      title: 'Progressive Web App',
-    }),
   ],
   output: {
     filename: '[name].js',

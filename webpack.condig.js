@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
+  watch: true,
   entry: {
     main: path.join(__dirname, 'src/ts/main/main.ts'),
     serviceWorker: path.join(__dirname, 'src/ts/service worker/main.ts'),
@@ -14,10 +15,12 @@ module.exports = {
     index: 'index.html',
     contentBase: path.join(__dirname, 'dist'),
     disableHostCheck: true,
-    https: true,
     liveReload: true,
     watchContentBase: true,
-    useLocalIp: true,
+    overlay: {
+      warnings: true,
+      errors: true,
+    },
   },
   module: {
     rules: [{
@@ -39,13 +42,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({
-      cleanAfterEveryBuildPatterns: [
-        '!favicon.ico',
-        '!manifest.json',
-        '!index.html',
-        '!help/**',
-        '!images/**'
-      ]
+      cleanStaleWebpackAssets: false,
     }),
     new CopyPlugin([
       {
@@ -53,6 +50,7 @@ module.exports = {
         to: path.resolve(__dirname, 'dist'),
         context: 'src/',
         ignore: ['*.ts'],
+        force: true,
       },
     ]),
     new MiniCssExtractPlugin(),

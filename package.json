@@ -4,7 +4,8 @@
   "description": "A complete guide to PWAs. Building a simple Instagram clone.",
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack.condig.js --watch"
+    "build": "webpack --config webpack.condig.js",
+    "start": "webpack-dev-server --config webpack.condig.js"
   },
   "keywords": [
     "pwa",

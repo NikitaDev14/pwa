@@ -1,5 +1,5 @@
-import { test } from './greet';
 import { assignPrompt } from './feed';
+import { test } from './greet';
 
 console.log(test());
 
@@ -11,7 +11,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-window.addEventListener('beforeinstallprompt', (event: any) => {
+window.addEventListener('beforeinstallprompt', (event: Event) => {
   console.log('beforeinstallprompt', event);
 
   event.preventDefault();

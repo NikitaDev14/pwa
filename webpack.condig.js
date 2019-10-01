@@ -2,6 +2,7 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TSLintPlugin = require('tslint-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -38,7 +39,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.ts', '.css'],
-    modules: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules')]
+    modules: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules')],
   },
   plugins: [
     new CleanWebpackPlugin({
@@ -54,6 +55,9 @@ module.exports = {
       },
     ]),
     new MiniCssExtractPlugin(),
+    new TSLintPlugin({
+      files: [path.resolve(__dirname, 'src/ts/**')]
+    }),
   ],
   output: {
     filename: '[name].js',

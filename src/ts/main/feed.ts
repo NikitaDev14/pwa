@@ -1,19 +1,17 @@
-const shareImageButton = document.querySelector('#share-image-button');
+const shareImageButton: HTMLButtonElement = document.querySelector('#share-image-button');
 const createPostArea: HTMLDivElement = document.querySelector('#create-post');
-const closeCreatePostModalButton = document.querySelector('#close-create-post-modal-btn');
+const closeCreatePostModalButton: HTMLButtonElement = document.querySelector('#close-create-post-modal-btn');
 
-let deferredPrompt;
+let deferredPrompt: Event;
 
-export function assignPrompt(event: any) {
+export function assignPrompt(event: Event): void {
   deferredPrompt = event;
 }
 
-function openCreatePostModal() {
+function openCreatePostModal(): void {
   createPostArea.style.display = 'block';
-
-
 }
 
-function closeCreatePostModal() {
+function closeCreatePostModal(): void {
   createPostArea.style.display = 'none';
 }

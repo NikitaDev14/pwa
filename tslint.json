@@ -10,7 +10,7 @@
         "no-console": false,
         "member-access": true,
         "no-empty-interface": true,
-        "no-any": true,
+        "no-any": false,
         "no-parameter-reassignment": true,
         "curly": true,
         "no-arg": true,

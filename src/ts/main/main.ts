@@ -20,17 +20,6 @@ window.addEventListener('beforeinstallprompt', (event: any) => {
   event.preventDefault();
 
   assignPrompt(event);
+
+  return false;
 });
-
-fetch('https://httpbin.org/ip')
-  .then((response: Response) => {
-    console.log(response);
-
-    return response.json();
-  })
-  .then((responseJson: any) => {
-    console.log(responseJson);
-  })
-  .catch((error: any) => {
-    console.error(error);
-  });

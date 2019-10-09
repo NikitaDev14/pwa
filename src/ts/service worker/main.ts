@@ -9,8 +9,6 @@ self.addEventListener('activate', (event: ExtendableEvent) => {
 });
 
 self.addEventListener('fetch', (event: FetchEvent) => {
-  console.log('[Service Worker] Fetching something ...', event);
-
   // override response
   event.respondWith(fetch(event.request));
 });

@@ -18,6 +18,7 @@ module.exports = {
     disableHostCheck: true,
     liveReload: true,
     watchContentBase: true,
+    clientLogLevel: 'debug',
     overlay: {
       warnings: true,
       errors: true,
@@ -44,6 +45,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
+      verbose: true,
     }),
     new CopyPlugin([
       {

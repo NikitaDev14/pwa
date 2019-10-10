@@ -51,6 +51,7 @@ function createCard(): void {
   const cardTitleTextElement: HTMLHeadingElement = document.createElement('h2');
   cardTitleTextElement.className = 'mdl-card__title-text';
   cardTitleTextElement.textContent = 'San Francisco Trip';
+  cardTitleTextElement.style.color = 'black';
   cardTitle.appendChild(cardTitleTextElement);
 
   const cardSupportingText: HTMLDivElement = document.createElement('div');

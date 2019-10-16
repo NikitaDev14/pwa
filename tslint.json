@@ -36,6 +36,7 @@
         "no-consecutive-blank-lines": [true, 2],
         "no-trailing-whitespace": true,
         "semicolon": [true, "always"],
+        "object-literal-sort-keys": false,
         "whitespace": [
             true,
             "check-branch",

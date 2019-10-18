@@ -19,14 +19,19 @@ fromEvent(testBtn, 'click')
           'Content-Type': 'application/json',
         }),
         body: JSON.stringify({
-          query: `
-            query {
-              allUsers {
-                id
-                name
-              }
+          query: `query userQuery($id: ID) {
+            User(id: $id) {
+              ...userFragment
             }
-          `,
+          }
+
+          fragment userFragment on User {
+            id
+            name
+          }`,
+          variables: {
+            id: 'ck1buv43a0hv201955u808iqn',
+          },
         }),
       },
     )),

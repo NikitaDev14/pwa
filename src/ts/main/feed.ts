@@ -32,6 +32,22 @@ function openCreatePostModal(): void {
 function closeCreatePostModal(): void {
   createPostArea.style.display = 'none';
 }
+// Add to cache on demand
+// function onSaveButtonClick(event: Event): void {
+//   console.log('click');
+//
+//   if ('caches' ! in window) {
+//     return;
+//   }
+//
+//   caches.open('user-requested')
+//     .then((cache: Cache) => {
+//       cache.addAll([
+//         'https://httpbin.org/get',
+//         '/src/images/sf-boat.jpg',
+//       ]);
+//     });
+// }
 
 shareImageButton.addEventListener('click', openCreatePostModal);
 
@@ -59,6 +75,11 @@ function createCard(): void {
   cardSupportingText.textContent = 'In San Francisco';
   cardSupportingText.style.textAlign = 'center';
   cardWrapper.appendChild(cardSupportingText);
+
+  // const cardSaveButton: HTMLButtonElement = document.createElement('button');
+  // cardSaveButton.textContent = 'Save';
+  // cardSupportingText.appendChild(cardSaveButton);
+  // cardSaveButton.addEventListener('click', onSaveButtonClick);
 
   (window as any).componentHandler.upgradeElement(cardWrapper);
   sharedMomentsArea.appendChild(cardWrapper);

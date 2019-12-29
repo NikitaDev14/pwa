@@ -37,6 +37,7 @@
         "no-trailing-whitespace": true,
         "semicolon": [true, "always"],
         "object-literal-sort-keys": false,
+        "object-literal-key-quotes": false,
         "ordered-imports": false,
         "no-invalid-this": true,
         "no-this-assignment": true,
